@@ -9,6 +9,4 @@ on:
 
 jobs:
   changelog:
-    uses: alexcams/.github/.github/workflows/pr-prepare.yml@main
-    secrets:
-      token: ${{ secrets.GITHUB_TOKEN }}
+    uses: alexcams/.github/.github/workflows/pr-prepare.yml@allow-comments-based-on-repo-permission
