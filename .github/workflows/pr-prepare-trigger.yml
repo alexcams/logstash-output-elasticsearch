@@ -1,12 +1,32 @@
-# Example workflow for plugin repositories
-# Copy this to .github/workflows/changelog.yml in each plugin repo
-
-name: Changelog Management
+name: Changelog & Version Update
 
 on:
-  pull_request:
-    types: [opened, labeled]
+  pull_request_target:
+    types: [opened, closed]
+  workflow_dispatch:
+    inputs:
+      command:
+        description: 'Type of update'
+        required: true
+        type: choice
+        options:
+          - release:patch
+          - release:minor
+          - release:major
+          - changelog:add
+      pr_number:
+        description: 'PR number to link in the changelog entry'
+        required: true
+        type: string
+      changelog_entry:
+        description: 'Custom changelog entry (defaults to PR title if omitted)'
+        required: false
+        type: string
 
 jobs:
   changelog:
-    uses: alexcams/.github/.github/workflows/pr-prepare.yml@allow-comments-based-on-repo-permission
+    uses: alexcams/.github/.github/workflows/pr-prepare.yml@use-GH-App-for-commit
+    with:
+      command: ${{ inputs.command }}
+      pr_number: ${{ inputs.pr_number }}
+      changelog_entry: ${{ inputs.changelog_entry }}
