@@ -1,3 +1,6 @@
+## 12.1.3
+  - Add the changelog entry here [#2](https://github.com/alexcams/logstash-output-elasticsearch/pull/2)
+
 ## 12.1.2
   - Random change [#1](https://github.com/alexcams/logstash-output-elasticsearch/pull/1)
 
