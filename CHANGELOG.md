@@ -1,3 +1,6 @@
+## 12.1.2
+  - Random change [#1](https://github.com/alexcams/logstash-output-elasticsearch/pull/1)
+
 ## 12.1.1
  - Remove duplicated deprecation log entry [#1232](https://github.com/logstash-plugins/logstash-output-elasticsearch/pull/1232)
 
